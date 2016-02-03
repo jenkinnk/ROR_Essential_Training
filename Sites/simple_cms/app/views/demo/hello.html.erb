@@ -6,7 +6,8 @@
 <br/>
 <% target = "world" %>
 <%= "Hello #{target} again!" %>
-
-<% 3.times do %>
-<%=	"XXX"%>
+<br/>
+<br/>
+<% @array.each do |n| %>
+<%=	n%><br/>
 <% end %>

@@ -7,7 +7,7 @@ class DemoController < ApplicationController
   end
   
   def hello
-	render('index')
+	#render('index')
   end
   
   def other_hello

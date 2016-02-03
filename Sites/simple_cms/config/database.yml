@@ -11,9 +11,9 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: #simple_cms_development
+  database: simple_cms_development
   pool: 5
-  username: root
+  username: simple_cms
   password: secretpassword
   host: localhost
 

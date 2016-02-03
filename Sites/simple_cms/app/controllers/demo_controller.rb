@@ -3,7 +3,7 @@ class DemoController < ApplicationController
   layout false
   
   def index
-	render('hello')
+	render('index')
   end
   
   def hello

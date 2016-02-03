@@ -37,7 +37,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.11.2)
-    mysql2 (0.4.2-x64-mingw32)
+    mysql2 (0.3.20-x64-mingw32)
     polyglot (0.3.5)
     rack (1.5.5)
     rack-test (0.6.3)
@@ -82,7 +82,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  mysql2
+  mysql2 (= 0.3.20)
   rails (= 4.0.0)
   sdoc
 

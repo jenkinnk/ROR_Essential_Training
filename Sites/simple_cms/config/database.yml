@@ -11,10 +11,10 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: simple_cms_development
+  database: #simple_cms_development
   pool: 5
   username: root
-  password:
+  password: secretpassword
   host: localhost
 
 # Warning: The database defined as "test" will be erased and

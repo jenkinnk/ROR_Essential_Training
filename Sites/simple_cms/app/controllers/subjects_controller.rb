@@ -25,6 +25,17 @@ class SubjectsController < ApplicationController
   end
 
   def edit
+	@subject = Subject.find(params[:id])
+		
+  end
+  
+  def update
+	@subject = Subject.find(params[:id])
+		if @subject.update_attributes(subject_params)
+			redirect_to(:action => 'show', :id=>@subject.id) #redirect to the index page
+		else
+			render('edit') #if update fails, allow the user to update info
+		end
   end
 
   def delete

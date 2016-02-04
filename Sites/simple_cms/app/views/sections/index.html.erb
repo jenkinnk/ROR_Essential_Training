@@ -12,20 +12,17 @@
   <table class="listing" summary="Section list">
     <tr class="header">
       <th>&nbsp;</th>
-      <th>Page Number</th>
-      <th>Section Name</th>
-      <th>Number of Edits</th>
-	  <th>Position</th>
+      <th>Page ID</th>
+      <th>Section</th>
 	  <th>Content Type</th>
 	  <th>Visible</th>
       <th>Actions</th>
     </tr>
     <% @sections.each do |section| %>
     <tr>
+		<td class="center"><%= section.position %></td>
 		<td class="center"><%= section.page_id %></td>
 		<td class="center"><%= section.name %></td>
-		<td class="center"><%= section.section_edits.size %></td>
-		<td class="center"><%= section.position %></td>
 		<td class="center"><%= section.content_type %></td>
 		<td class="center"><%= section.visible ? 'Yes' : 'No' %></td>
 		<td class="actions">

@@ -12,20 +12,21 @@
   <table class="listing" summary="Page list">
     <tr class="header">
       <th>&nbsp;</th>
-      <th>Subject</th>
-	  <th>Name</th>
+      <th>Subject ID</th>
+	  <th>Page</th>
 	  <th>Permalink</th>
-	  <th>Position</th>
       <th>Visible</th>
+	  <th>Sections</th>
       <th>Actions</th>
     </tr>
     <% @pages.each do |page| %>
     <tr>
+		<td class="center"><%= page.position %></td>
 		<td class="center"><%= page.subject_id %></td>
 		<td class="center"><%= page.name %></td>
 		<td class="center"><%= page.permalink %></td>
-		<td class="center"><%= page.position %></td>
 		<td class="center"><%= page.visible ? 'Yes' : 'No' %></td>
+		<td class="center"><%= page.sections.size %></td>
       <td class="actions">
         <%= link_to("Show", {:action=>'show', :id=>page.id}, :class => 'action show') %>
         <%= link_to("Edit", {:action=>'edit', :id=>page.id}, :class => 'action edit') %>

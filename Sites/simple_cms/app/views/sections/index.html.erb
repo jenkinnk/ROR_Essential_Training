@@ -18,7 +18,7 @@
 		<td class="center"><%= section.page_id %></td>
 		<td class="center"><%= section.name %></td>
 		<td class="center"><%= section.content_type %></td>
-		<td class="center"><%= section.visible ? 'Yes' : 'No' %></td>
+		<td class="center"><%= status_tag(section.visible)  %></td>
 		<td class="actions">
 			<%= link_to("Show", {:action=>'show', :id=>section.id}, :class => 'action show') %>
 			<%= link_to("Edit", {:action=>'edit', :id=>section.id}, :class => 'action edit') %>

@@ -6,7 +6,7 @@
   <table class="listing" summary="Page list">
     <tr class="header">
       <th>&nbsp;</th>
-      <th>Subject ID</th>
+      <th>Subject</th>
 	  <th>Page</th>
 	  <th>Permalink</th>
       <th>Visible</th>
@@ -16,7 +16,7 @@
     <% @pages.each do |page| %>
     <tr>
 		<td class="center"><%= page.position %></td>
-		<td class="center"><%= page.subject_id %></td>
+		<td class="center"><%= page.subject.name if page.subject%></td>
 		<td class="center"><%= page.name %></td>
 		<td class="center"><%= page.permalink %></td>
 		<td class="center"><%= status_tag(page.visible) %></td>

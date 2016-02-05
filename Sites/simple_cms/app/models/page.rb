@@ -40,7 +40,7 @@ class Page < ActiveRecord::Base
 	end
 	
 	def delete_related_sections
-		self.sections.each do |section|
+		#self.sections.each do |section|
 		# section.destroy
 	end
 end

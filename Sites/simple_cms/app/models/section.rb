@@ -28,6 +28,6 @@ class Section < ActiveRecord::Base
 	private
 	
 	def touch_page
-		page.touch
+		#page.touch
 	end
 end

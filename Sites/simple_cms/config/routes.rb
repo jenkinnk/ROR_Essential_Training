@@ -1,7 +1,8 @@
 SimpleCms::Application.routes.draw do
 
   root "demo#index"
-  #get "demo/index"
+
+  get 'admin', :to => "access#index"
   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
   
   # The priority is based upon order of creation: first created -> highest priority.

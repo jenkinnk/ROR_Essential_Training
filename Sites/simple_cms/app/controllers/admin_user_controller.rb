@@ -13,7 +13,14 @@ class AdminUserController < ApplicationController
   end
   
   def create
+		#Instantiate a new object
 	@user = AdminUser.new(user_params)
+		if @user.save #save the object
+			flash[:notice] = "Admin User Created Successfully"
+			redirect_to(:action => 'index') #redirect to the index page
+		else
+			render('new') #if save fails, allow the user to update info
+		end
   end
   
   def edit
@@ -36,13 +43,13 @@ class AdminUserController < ApplicationController
   
   def destroy
 	user = AdminUser.find(params[:id]).destroy
-	flash[:notice] = "Admin User '#{admin_user.username}' Deleted Successfully"
+	flash[:notice] = "Admin User '#{user.username}' Deleted Successfully"
 	redirect_to(:action => 'index')
   end
   
   private 
   def user_params
-	params.require(:admin_user).permit(:first_name, :last_name, :email, :username)
+	params.require(:admin_user).permit(:first_name, :last_name, :email, :username, :password)
   end
   
 end

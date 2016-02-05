@@ -32,5 +32,14 @@ class DemoController < ApplicationController
 	#render(:text => @something.upcase)
 	#render(:text => "1" + 1 )
   end
+  
+  def logging
+	logger.debug("Debug")
+	logger.info("Info")
+	logger.warn("Warn")
+	logger.error("Error")
+	logger.fatal("Fatal")
+	render(:text => "Logged")
+  end
 	
 end

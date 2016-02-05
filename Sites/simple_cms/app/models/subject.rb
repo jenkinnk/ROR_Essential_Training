@@ -1,6 +1,9 @@
 class Subject < ActiveRecord::Base
 	#Relationships
 	has_many :pages
+	
+	validates_presence_of :name
+	
 	#Scopes
 	scope :visible, lambda{where(:visible=>true)}
 	scope :invisible, lambda{where(:visible=>false)}

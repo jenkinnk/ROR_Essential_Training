@@ -5,6 +5,9 @@ class Section < ActiveRecord::Base
 	
 	acts_as_list :scope => :page
 	
+	#Callbacks
+	after_save :touch_page
+	
 	# Validation
 	CONTENT_TYPES = ['text', 'HTML']
 	validates_presence_of :name
@@ -21,4 +24,10 @@ class Section < ActiveRecord::Base
 	scope :search, lambda{|query|
 		where(["name LIKE ?", "%#{query}%"])
 	}
+	
+	private
+	
+	def touch_page
+		page.touch
+	end
 end

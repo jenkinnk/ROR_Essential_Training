@@ -6,6 +6,11 @@ class Page < ActiveRecord::Base
 	
 	acts_as_list :scope => :subject
 	
+	#Callbacks
+	before_validation :add_default_permalink
+	after_save :touch_subject
+	after_destroy :delete_related_sections
+	
 	# Validation
 	validates_presence_of :name
 	validates_length_of :name, :maximum => 255
@@ -21,4 +26,21 @@ class Page < ActiveRecord::Base
 	scope :search, lambda{|query|
 		where(["name LIKE ?", "%#{query}%"])
 	}
+	
+	private
+	def add_default_permalink
+		if permalink.blank?
+			self.permalink = "#{id}-#{name.parameterize}"
+		end
+	end
+	
+	def touch_subject
+		#updates timestamp on subject
+		subject.touch
+	end
+	
+	def delete_related_sections
+		self.sections.each do |section|
+		# section.destroy
+	end
 end

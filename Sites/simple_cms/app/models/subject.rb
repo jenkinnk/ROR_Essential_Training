@@ -1,6 +1,6 @@
 class Subject < ActiveRecord::Base
 	#Relationships
-	has_many :pages
+	has_many :pages#, :dependent => :destroy
 	
 	acts_as_list
 	

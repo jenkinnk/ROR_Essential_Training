@@ -3,6 +3,9 @@ class AdminUser < ActiveRecord::Base
 	# Class and file name were changed instead
 	#self.table_name = "admin_users"
 	
+	#Authentication
+	has_secure_password
+	
 	# Validation
 	EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 	FORBIDDEN_USERNAMES = ['littlebopeep','humptydumpty','marymary']
@@ -19,13 +22,15 @@ class AdminUser < ActiveRecord::Base
 	#validates_confirmation_of :email
 	
 	#'Sexy Validation'
-	validates :first_name, presence => true, :length => {:maximum => 25}
-	validates :last_name, presence => true, :length => {:maximum => 50}
-	validates :username, presence => true, :length => {:within => 8..25}, uniqueness=>true
-	validates :email, presence => true, :length => {:maximum => 100}, :format=> EMAIL_REGEX, :confirmation=>true
+	validates :first_name, :presence => true, :length => {:maximum => 25}
+	validates :last_name, :presence => true, :length => {:maximum => 50}
+	validates :username, :presence => true, :length => {:within => 8..25}, :uniqueness=>true
+	validates :email, :presence => true, :length => {:maximum => 100}, :format=> EMAIL_REGEX, :confirmation=>true
 	
 	validate :username_is_allowed
 	#validate :no_new_users_on_saturday, :on => :create
+	
+	
 	
 	def username_is_allowed
 		if FORBIDDEN_USERNAMES.include?(username)

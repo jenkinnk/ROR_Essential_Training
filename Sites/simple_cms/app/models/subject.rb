@@ -2,7 +2,9 @@ class Subject < ActiveRecord::Base
 	#Relationships
 	has_many :pages
 	
+	# Validation
 	validates_presence_of :name
+	validates_length_of :name, :maximum => 255
 	
 	#Scopes
 	scope :visible, lambda{where(:visible=>true)}
